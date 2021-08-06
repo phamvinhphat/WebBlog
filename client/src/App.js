@@ -1,6 +1,11 @@
 
+import HomePage from './pages/HomePage';
+
 function App() {
-  return <p>This is Blog</p>;
+  // const dispatch = useDispatch();
+  // dispatch(actions.getPosts.getPostsRequest());
+  
+  return <HomePage/>;
 }
 
 export default App;

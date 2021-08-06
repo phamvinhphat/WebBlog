@@ -1,12 +1,12 @@
-import{createActions} from 'redux-actions';
+import {createActions} from 'redux-actions';
 
-export const getType = (ReduxActions) => {
-    return ReduxActions().type;
+export const getType = (reduxAction) => {
+    return reduxAction().type;
 };
 
 export const getPosts = createActions({
-    getPostRequest: undefined,
+    getPostsRequest: undefined,
     getPostSuccess: (payload) => payload,
     getPostFailure: (err) => err,
 
-})
+});

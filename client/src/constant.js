@@ -1,6 +1,6 @@
 export const INIT_STATE = {
-    posts:{
-        isLoading = false,
+    posts: {
+        isLoading: false,
         data: [],
     },
-};
+}; 
