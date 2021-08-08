@@ -11,5 +11,12 @@ export const getPosts = createActions({
 
 });
 
+export const createPosts = createActions({
+    createPostRequest: (payload) => payload,
+    createPostSuccess: (payload) => payload,
+    createPostFailure: (err) => err,
+
+});
+
 export const showModal = createAction('SHOW_CREATE_POST_MODAL');
 export const hideModal = createAction('HIDE_CREATE_POST_MODAL');
