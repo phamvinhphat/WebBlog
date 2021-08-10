@@ -2,31 +2,39 @@ import { Button, Modal, TextareaAutosize, TextField } from "@material-ui/core";
 import React from "react";
 import FileBase64 from 'react-file-base64';
 import {useSelector, useDispatch} from 'react-redux';
-import { createPosts, hideModal } from "../../redux/actions";
+import {createPosts, hideModal } from "../../redux/actions";
 import {modalState$} from '../../redux/selectors';
-import useStyles from './sytes';
+import useStyles from './styles';
 
 
 export default function CreatePostModal(){
     const {isShow} = useSelector(modalState$);
-    console.log({isShow});
+   
     const classes = useStyles();
     const dispatch = useDispatch();
+
     const [data, setData] = React.useState({
         title:'',
         content:'',
         attachment: '',
     });
 
-    const onSubmit = React.useCallback(()=>{
-       console.log ({data})
-       dispatch(createPosts.createPostRequest(data));
-    },[data,dispatch]);
-
     const onClose = React.useCallback(()=>{
         dispatch(hideModal());
+        setData({
+              title:'',
+        content:'',
+        attachment: '',
+        });
     },[dispatch]);
 
+
+    const onSubmit = React.useCallback(() => { 
+       dispatch(createPosts.createPostRequest(data));
+       onClose();
+    },[data,dispatch,onClose]);
+
+ 
     const body = (
         <div className = {classes.paper} id ="simple-modal-title">
             <h2>Create New Post</h2>
